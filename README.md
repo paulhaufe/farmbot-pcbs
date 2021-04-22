@@ -35,13 +35,15 @@ The original Farmduino BOM lists *0287015.H* from *Littlefuse* as primary compon
 2. Fuse holder
 ![fuse holder](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/f1-2.png "fuse holder")
 ## BOM
-|Line #|Name|Description|Mount Technology|Designator|Quantity|Manufacturer 1|Manufacturer Part Number 1|Footprint||
-| ------------- |:-------------:||:-------------:||:-------------:||:-------------:||:-------------:||:-------------:||:-------------:||:-------------:| -----:|
-|1|TPS5430||SMT|D5|1|Texas Instruments|TPS5430DDA|SO-8-1||
-|2|0.02R,1%,1W,1206|Resistor|SMT|R74, R75, R76, R80, R81|5|||1206R||
-|3|0.22R,1%,1206|Resistor|SMT|R25, R26, R29, R30, R31, R32, R33, R71, R72, R73||10|||1206R||
-|4|1K,1%,0603|Resistor|SMT|R45, R46, R48, R106, R107, R112, R115, R116, R117, |R119, R121, R122, R124, R125|14|||RC0603||
-|6|1M,1%,0603|Resistor|SMT|R18, R39|2|||RC0603||
+Please note, the following bill of materials (BOM) has not been tested with a real-world prototype. This warning will be replaced once tested successfully. The original Farmduino BOM does not qualify for manufacturing out-of-the-box and has been extended and changed at a few locations.
+
+Line | Name | Description | Mount Technology | Designator | Quantity | Manufacturer 1 | Manufacturer Part Number 1 | Footprint
+--- | --- | --- | --- | ---| ---| ---| --- | ---
+1|TPS5430||SMT|D5|1|Texas Instruments|TPS5430DDA|SO-8-1||
+2|0.02R,1%,1W,1206|Resistor|SMT|R74, R75, R76, R80, R81|5|||1206R||
+3|0.22R,1%,1206|Resistor|SMT|R25, R26, R29, R30, R31, R32, R33, R71, R72, R73||10|||1206R||
+4|1K,1%,0603|Resistor|SMT|R45, R46, R48, R106, R107, R112, R115, R116, R117, R119, R121, R122, R124, R125|14|||RC0603||
+6|1M,1%,0603|Resistor|SMT|R18, R39|2|||RC0603||
 7|1M,1%,1206|Resistor|SMT|R49|1|||RC1206||
 8|1N4148|Default Diode|SMT|D1, D3, D4|3|MCC|1N4148WX-TP|SOD-323||
 9|1NF,25V,0603|Capacitor|SMT|C16, C49, C69, C70, C71, C72, C73, C75, C121|9|||RC0603, 0603C||
