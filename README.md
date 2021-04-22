@@ -25,3 +25,12 @@ The 4-pin headers X3, X4, X5, X6, X7 for connecting the stepper motors are locat
 ### 5-Pin UTM header
 The 5-pin header with designator P2 is located at the lower bottom of the board.
 ![utm](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/p2.png "utm")
+### 12-Pin header P20
+The 12-pin header with designator P20 is located at the lower bottom of the board.
+![utm](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/p20.png "utm")
+### Fuse and fuse holder
+The original Farmduino BOM lists *0287015.H* from *Littlefuse* as primary component for designator F1, but the two fuse blades do not fit to the four through-holes. The missing piece is a fuse holder that is soldered first. The fuse is put manually into the slot of the fuse holder.
+1. Fuse F1
+![fuse](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/f1.png "fuse")
+2. Fuse holder
+![fuse holder](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/f1-2.png "fuse holder")
