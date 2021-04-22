@@ -22,3 +22,6 @@ The 4-pin headers X3, X4, X5, X6, X7 for connecting the stepper motors are locat
 * X7 -> Z MOTOR
 
 ![motors](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/x3-x4-x5-x6-x7.png "motors")
+### 5-Pin UTM header
+The 5-pin header with designator P2 is located at the lower bottom of the board.
+![utm](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/p2.png "utm")
