@@ -1,5 +1,5 @@
 # farmduino-pcb-howto
-A guide to manufacture farmduino on your own
+A guide to manufacture Farmduino device on your own
 ## Instruction for PCB assembly manufacturers
 The gerber files do not contain designators for all through-hole components. That's why manufacturers will have a hard time to locate the correct location on the board for these components.
 ### Encoder Headers
