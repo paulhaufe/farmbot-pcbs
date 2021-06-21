@@ -106,7 +106,7 @@ Line | Name | Description | Mount Technology | Designator | Quantity | Manufactu
 90|Molex 151048-1209|Header, 2-Pin|Through-Hole|P12, P13, P14, P15, P16, X9|6|Molex|1510481209|151048||
 91|ATMEG2560-16AU||SMT|U1|1|Microchip / Atmel|ATMEGA2560-16AU|LQFP-100||
 92|ATMEGA16U2-MU||SMT|U8|1|Microchip / Atmel|ATMEGA16U2-MU|QFN-32||
-93|AM26LS32||SMT|U7, U11|2|Texas Instruments|AM26LS32ACN|SO-16-H||
+93|AM26LS32||SMT|U7, U11|2|Texas Instruments|AM26LS32AID|SO-16-H||
 95|LM358ADR||SMT|U12|1|ON Semiconductor|LM358ADR2G|SOIC-8||
 96|AMS1117-3.3||SMT|U13|1|Advanced Monolithic Systems|AMS1117-3.3|SOT-223||
 97|SN74AHCT1G125DBVR||SMT|U15|1|Texas Instruments|SN74AHCT1G125DBVR|SOT-23-5||
