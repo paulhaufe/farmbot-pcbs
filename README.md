@@ -2,7 +2,9 @@
 A guide to manufacture Farmduino device on your own
 ## Instruction for PCB assembly manufacturers
 The gerber files do not contain designators for all through-hole components. That's why manufacturers will have a hard time to locate the correct location on the board for these components.
+
 ![Overview](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/overview.png "Overview")
+
 ### Encoder Headers
 The encoder header designators P8, P9, P10, P11 match to the logical encoders Z, Y, X2, X1
 * p8 -> Z ENCODER
