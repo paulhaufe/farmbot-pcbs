@@ -14,7 +14,7 @@ navigate to *Your\Path\...\Atmel\Flip 3.4.7\usb* or where you installed Flip. Co
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/device-manager.png" width="500">
 </a>
 
-Flip will output some additional SoC data, such as hardware ID (signature bytes) and others.
+Open Flip and select *ATmega16U2* as device and *USB* as driver. Open the USB connection and the software will output some additional SoC data, such as hardware ID (signature bytes) and others. Do the *blank check* to verify the SoC is up and running.
 
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/flip.png" width="500">
 </a>
