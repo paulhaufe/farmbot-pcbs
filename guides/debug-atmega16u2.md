@@ -7,9 +7,15 @@ Check wether or not the ATmega16U2 SoC is powered with the help of an oscillosco
 </a>
 
 ## Retrieval of Soc meta data
-Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a J32-bit Java JRE to start properly. Make sure Java binary is added to the PATH environment variable. 
-In my case it was necessary to install the Atmel USB driver *AtLibUsbDfu.dll*. It is located in USB directory of the FLip installation directory. Open Windows device manager and look for "unknown device". Right click the entry and select "update driver". Then select "search for driver on computer" and
-navigate to *Your\Path\...\Atmel\Flip 3.4.7\usb* or where you installed Flip. Confirm the directory. The computer will find the correct driver and install it. Flip will output some additional SoC data.
+Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a 32-bit Java JRE to start properly. Make sure Java binaries are added to the PATH environment variable. 
+In my case it was necessary to install the Atmel USB driver *AtLibUsbDfu.dll*. It is located in *USB* directory of the Flip installation directory. Open Windows device manager and look for "unknown device". Right click the entry and select "update driver". Then select "search for driver on computer" and
+navigate to *Your\Path\...\Atmel\Flip 3.4.7\usb* or where you installed Flip. Confirm the directory. The computer will find the correct driver and install it. In the device manager the Soc is registered like here:
+
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/device-manager.png" width="500">
+</a>
+
+Flip will output some additional SoC data, such as hardware ID (signature bytes) and others.
 
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/flip.png" width="500">
 </a>
+
