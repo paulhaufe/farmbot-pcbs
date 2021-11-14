@@ -3,7 +3,8 @@ To test the ATmega16U2 the USB-B port needs to be powered by connecting it to th
 ## Electrical test
 Check wether or not the ATmega16U2 SoC is powered with the help of an oscilloscope. I use the Rigol DS1043Z. Connect the probe to the *VCC*, *AVCC* and *UVCC* pins, because at the end all of them are powered through the USB-B power line. The voltage level should be 5V at each pin. If not there is an issue with USB power supply.
 
-![atmega](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2.png)
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2.png" width="250">
+</a>
 
 ## Retrieval of Soc meta data
 Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a J32-bit Java JRE to start properly. Make sure Java binary is added to the PATH environment variable. 
