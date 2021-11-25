@@ -14,7 +14,7 @@ Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software
 
 In my case it was necessary to install the Atmel USB driver *AtLibUsbDfu.dll* manually. It is located in *USB* directory of the Flip installation directory. Open Windows device manager and look for "unknown device". Right click the entry and select "update driver". Then select "search for driver on computer" and navigate to 
 
-    *Your\Path\...\Atmel\Flip 3.4.7\usb* 
+    Your\Path\...\Atmel\Flip 3.4.7\usb
 
 or where you installed Flip. Confirm the directory. The computer will find the correct driver and install it. In the device manager the Soc is registered like here:
 
@@ -33,11 +33,11 @@ I installed the official [Arduino IDE](https://www.arduino.cc/en/software), beca
 
 For the firmware update use Flip again. Please choose the correct device, open the USB connection and select *Program Target Device Memory* from the tools bar. You will be asked to provide the path to *.hex* firmware file. Navigate to the following path:
 
-    *your-drive:\your-installation-directory\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\arduino-usbserial*
+    your-drive:\your-installation-directory\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\arduino-usbserial
 
 There is file named
 
-    *Arduino-usbserial-atmega16u2-Mega2560-Rev3.hex*
+    Arduino-usbserial-atmega16u2-Mega2560-Rev3.hex
 
 Select it and apply the firmware update. If everything goes well, the device manager will recognize the ATmega2560 immediately, because the correct driver has been delivered and installed with Arduino IDE already.
 
