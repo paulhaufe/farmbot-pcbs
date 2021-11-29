@@ -11,9 +11,7 @@ Check wether or not the ATmega16U2 SoC is powered with the help of an oscillosco
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2.png" width="500">
 </a>
 
-## Flashing the Firmware
-
-### Driver installation
+## Driver installation
 Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a 32-bit Java JRE to start properly. Make sure Java binaries are added to PATH environment variables. 
 
 If necessary install the Atmel USB driver *AtLibUsbDfu.dll* manually. It is located in *USB* directory of the Flip installation directory. Open Windows device manager and look for "unknown device". Right click the entry and select "update driver". Then select "search for driver on computer" and navigate to 
@@ -27,7 +25,7 @@ or where you installed Flip. Confirm the directory. The computer will find the c
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/device-manager.png" width="500">
 </a>
 
-### First life signs
+## First life signs
 
 Open Flip and select *ATmega16U2* as device and *USB* as driver. Open the USB connection and the software will output some additional SoC data, such as hardware ID (signature bytes) and others. Do the *blank check* to verify the SoC is up and running.
 
@@ -37,32 +35,57 @@ Open Flip and select *ATmega16U2* as device and *USB* as driver. Open the USB co
 Use *avrdude* program to get a detailled list of current ATmega16U2 parameters. *Avrdude* ships with the official [Arduino IDE](https://www.arduino.cc/en/software). 
 
 ```bash
-$> avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 115200
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 115200
 ```
 
 Commandline parameters explained
 |Parameter|What it does|
 |-|-|
-|-p m16u2|the Atmel SoC that is addressed with the call, in this case ATmega16U2|
-|-c wiring|protocol used for talking to Atmel SoC; wiring corresponds to STK500v2 internally which in turn is successor of STK500v1 and considered more stable|
-|-P COM3|local communication port; here in Windows notation COM[n]|
-|-C avrdude.conf|local path to avrdude configuration file|
-|-vvv | verbose log of the communication with the SoC|
-|-c avrisp|local PC is used as programmer|
-|-b 115200|if local PC is programmer then 115200 is default; if programming is done through an Arduino instead (--> troubleshooting section), then it must be 19200 to work properly|
-### Configure external crystal oscillator
-By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal 
+|`-p m16u2`|the Atmel SoC that is addressed with the call, in this case ATmega16U2|
+|`-c wiring`|protocol used for talking to Atmel SoC; wiring corresponds to STK500v2 internally which in turn is successor of STK500v1 and considered more stable|
+|`-P COM3`|local communication port; here in Windows notation COM[n]|
+|`-C avrdude.conf`|local path to avrdude configuration file|
+|`-vvv` | verbose log of the communication with the SoC|
+|`-c avrisp`|local PC is used as programmer|
+|`-b 115200`|if local PC is programmer then 115200 is default; if programming is done through an Arduino instead (--> troubleshooting section), then it must be 19200 to work properly|
+## Configure external crystal oscillator
+By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal which needs to be configured by writing the fuses in order to synchronize with atmega2560 also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
 
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/crystal.png" width="500">
 </a>
 
+The standard settings of the fuses need to change in order to get the circuit up and running. There is a nice online tool called [*AVR Fuse Calulator*](https://www.microchip.com/en-us/development-tool/flip) for showing all options with corresponding bit masks. Two things have to be adressed here:
+1. configure external 16Mhz crystal oscillator; 
+  
+    *`Ext. Crystal Osc.;Frequency 8.0-Mhz; Start-up time: 16K CK + 65ms; [CKSEL=1111 SUT=11]`*
+
+2. remove flag to divide clock by 8
+
+The final fuse values according to the previous configuration are:
+|LOW|HIGH|EXTENDED|
+|-|-|-|
+|`0xFF`|`0xD9`|`0xF4`|
+
+The values are programmed with *avrdude* tool.
+
 ```bash
 avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xf4:m
 ```
-### Programming
-Please note, if the initial programming procedure is carried out successfully, the ATmega16U2 won't be recognized by the USB host (your PC) anymore. Instead it will transfer all those messages between USB host and ATmega2560 back and forth.
 
-## Reset firmware to default
+Additional parameters explained.
+|Parameter|What it does|
+|-|-|
+|`-U`|says you like to deal with the fuses|
+|`lfuse:w:0xff:m`|write LOW fuse with value `0xFF`|
+|`hfuse:w:0xff:m`|write HIGH fuse with value `0xD9`|
+|`efuse:w:0xff:m`|write EXTENDED fuse with value `0xF4`|
+
+If all goes well you *avrdude* will show a summary of the new fuse values.
+
+## Programming
+Please note, if the initial programming procedure is carried out successfully, the ATmega16U2 won't be recognized by the USB host (your PC) anymore. Instead it will transfer all those messages between USB host and ATmega2560 back and forth. If for any reason this seems not possible, please see the troubleshooting section.
+
+## Troubleshooting
 To reset the firmware of Atmega16U2, there is an ISCP interface available on the PCB that can be connected to an IC programmer, e.g. Arduino UNO.
 
 <a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/iscp-atmega16U2.png" width="500">
