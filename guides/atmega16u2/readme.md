@@ -19,7 +19,7 @@ The USB-B port needs to be powered by connecting it to the local PC using an USB
 
 Check wether or not the ATmega16U2 SoC is powered with the help of an oscilloscope. I use the Rigol DS1043Z. Connect the probe to the *VCC*, *AVCC* and *UVCC* pins, because all of them are powered through the USB-B power lines. The voltage level should be about 5V at each pin. If not, there is an issue with USB power supply.
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/atmega16u2.png" width="500">
+<a href="url"><img src="/atmega16u2.png" width="500">
 </a>
 
 ## Install Windows atmega16U2 driver
