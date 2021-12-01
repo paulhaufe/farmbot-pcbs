@@ -74,7 +74,8 @@ The USB circuit of the Farmduino PCB comes with an ISCP interface to program the
 Use *avrdude* program to get a detailled list of current ATmega16U2 parameters. *Avrdude* ships with the official [Arduino IDE](https://www.arduino.cc/en/software). 
 
 ```bash
-avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 115200
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" 
+-vvv -c avrisp -b 115200
 ```
 
 Commandline parameters explained
@@ -107,7 +108,8 @@ The final fuse values according to the previous configuration are:
 The values are programmed with *avrdude* tool.
 
 ```bash
-avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xf4:m
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" 
+-vvv -c avrisp -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xf4:m
 ```
 
 Additional parameters explained.
