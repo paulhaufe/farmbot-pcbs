@@ -19,7 +19,7 @@ The USB-B port needs to be powered by connecting it to the local PC using an USB
 
 Check wether or not the ATmega16U2 SoC is powered with the help of an oscilloscope. I use the Rigol DS1043Z. Connect the probe to the *VCC*, *AVCC* and *UVCC* pins, because all of them are powered through the USB-B power lines. The voltage level should be about 5V at each pin. If not, there is an issue with USB power supply.
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2.png" width="500">
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/atmega16u2.png" width="500">
 </a>
 
 ## Install Windows atmega16U2 driver
@@ -33,7 +33,7 @@ Your\Path\..\Atmel\Flip 3.4.7\usb
 
 or where you installed Flip. Confirm the directory. The computer will find the correct driver and installs it. Plug the USB-A end of USB cable into your PC and connect it to the USB-B port of your Farmduino. In the device manager the SoC should show up as follows:
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/device-manager.png" width="500">
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/device-manager.png" width="500">
 </a>
 
 ## Flash usbserial application
@@ -50,7 +50,7 @@ Make sure your Farmduino is connected via USB cable to the local PC. Open a conn
 
 Flip will output some additional SoC data, such as hardware ID (signature bytes) and others. Do the *blank check* to verify the SoC is up and running.
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/flip.png" width="500">
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/flip.png" width="500">
 </a>
 
 Please note, an ATmega16U2 fresh from the factory has lock protection bits set. That means Flip won't be able to read the memory. But it could write an application as `HEX` file or a flash a new bootloader other than the default ATMEL DFU bootloader. We need the usbserial application located in the Arduino installation directory
@@ -93,7 +93,7 @@ Commandline parameters explained
 
 By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal which needs to be configured by writing the fuses in order to synchronize with atmega2560 also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/crystal.png" width="500">
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/crystal.png" width="500">
 </a>
 
 The standard settings of the fuses need to change in order to get the circuit up and running. There is a nice online tool called [*AVR Fuse Calulator*](https://www.microchip.com/en-us/development-tool/flip) for showing all options with corresponding bit masks. Two things have to be adressed here:
@@ -132,7 +132,7 @@ For programming atmeag16U2 open Flip, choose device and open the USB port.
 ## Troubleshooting
 To reset the firmware of Atmega16U2, there is an ISCP interface available on the PCB that can be connected to an IC programmer, e.g. Arduino UNO.
 
-<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/iscp-atmega16U2.png" width="500">
+<a href="url"><img src="https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/guides/atmega16u2/iscp-atmega16U2.png" width="500">
 </a>
 from genesis-USB.SchDoc
 
