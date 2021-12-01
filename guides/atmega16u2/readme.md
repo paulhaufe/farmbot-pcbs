@@ -19,7 +19,7 @@ The USB-B port needs to be powered by connecting it to the local PC using an USB
 
 Check wether or not the ATmega16U2 SoC is powered with the help of an oscilloscope. I use the Rigol DS1043Z. Connect the probe to the *VCC*, *AVCC* and *UVCC* pins, because all of them are powered through the USB-B power lines. The voltage level should be about 5V at each pin. If not, there is an issue with USB power supply.
 
-![atmega16u2](/atmega16u2.png)
+![atmega16u2]/guides/atmega16u2/(/atmega16u2.png)
 
 ## Install Windows atmega16U2 driver
 Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a 32-bit Java JRE to start properly. Make sure Java binaries are added to PATH environment variables. 
