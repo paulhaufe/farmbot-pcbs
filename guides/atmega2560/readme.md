@@ -1,5 +1,5 @@
-#Initial Programming ATmega2560
-Please note, if the firmware update procedure is carried out successfully, the ATmega16U2 won't be recognized by the USB host (your PC) anymore. Instead it will transfer all those messages between USB host and ATmega2560 back and forth.
+# Initial Programming ATmega2560
+
 
 I installed the official [Arduino IDE](https://www.arduino.cc/en/software), because it comes with the right firmware for the ATmega16U2 already.
 
