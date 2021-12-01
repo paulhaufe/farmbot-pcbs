@@ -34,7 +34,7 @@ or where you installed Flip. Confirm the directory. The computer will find the c
 
 ![atmega16u2](/guides/atmega16u2/device-manager.png)
 
-## Configuration of fuses with Arduino Uno as programmer
+## Programming
 
 To enable the external crystal oscillator the fuses bits have to be changed. You will need an ISP programmer such as the official [ATMEL-ICE programmer](https://www.microchip.com/en-us/development-tool/atatmel-ice). But an official Arduino standard device will do, too. I used an Arduino UNO.
 
@@ -83,7 +83,7 @@ If all goes well you will be presented an exhaustive list of your ATmega16U2 set
 
 ## Unlock the SoC
 
-If ATmega16U2 comes fresh from the factory, then is has protection bits set and is locked. To unlock do the following steps. 
+If ATmega16U2 comes fresh from the factory, then is has protection bits set and is locked. To unlock do the following steps. Otherwise you might not be able to change the fuses values.
 
 1. Execute avrdude in the commandline.
 ```bash
@@ -96,9 +96,9 @@ New commandline parameters explained.
 |Parameter|What it does|
 |-|-|
 |`-F`|The device signatures will most likely not match, so the `-F` command tells avrdude to ignore them|
-|`-t`| allows us to enter the erase command in the next step|
+|`-t`| allows to enter the erase command|
 
-### Configure the external crystal oscillator
+### Configure the external crystal oscillator by setting fuses
 
 By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal oscillator. ATmega16U2 needs to be configured to use the crystal by writing the fuses in order to synchronize with atmega2560, also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
 
