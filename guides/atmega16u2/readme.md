@@ -34,51 +34,41 @@ or where you installed Flip. Confirm the directory. The computer will find the c
 
 ![atmega16u2](/guides/atmega16u2/device-manager.png)
 
-## Flash usbserial application
-
-Make sure your Farmduino is connected via USB cable to the local PC. Open a connection to atmega16U2 using Flip.
-
-1. Open Flip
-2. Select the microcontroller. 
-3. Click “Device”>”Select…”, or use the shortcut key <Ctrl>+S
-4. Select the microcontroller “ATMEGA16U2”.
-5. Select the communication. 
-6. Click “Settings”>”Communication”>”USB”, or use the shortcut key <Ctrl>+U.
-7. A dialogue box may appear. Then click open. 
-
-Flip will output some additional SoC data, such as hardware ID (signature bytes) and others. Do the *blank check* to verify the SoC is up and running.
-
-![atmega16u2](/guides/atmega16u2/flip.png)
-
-Please note, an ATmega16U2 fresh from the factory has lock protection bits set. That means Flip won't be able to read the memory. But it could write an application as `HEX` file or a flash a new bootloader other than the default ATMEL DFU bootloader. We need the usbserial application located in the Arduino installation directory
-
-```bash
-C:\Program Files\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\Arduino-usbserial-atmega16u2-Mega2560-Rev3.hex
-```
-Load the usbserial firmware with FLIP. 
-
-1. Click “File”>”Load HEX File…”>”Arduino-usbserial-atmega16u2-Uno-Rev3.hex”
-2. Ensure the check box is checked. “Erase”, “Program” and “Verify”
-3. Click “Run”.
-
-Once the firmware is loaded, you can unplug the USB connection. The atmega16U2 won't be visible anymore.
-
-## Configuration of fuses
+## Configuration of fuses with Arduino Uno as programmer
 
 To enable the external crystal oscillator the fuses bits have to be changed. You will need an ISP programmer such as the official [ATMEL-ICE programmer](https://www.microchip.com/en-us/development-tool/atatmel-ice). But an official Arduino standard device will do, too. I used an Arduino UNO.
 
 ### Physical Setup
 
-The USB circuit of the Farmduino PCB comes with an ISCP interface to program the atmega16U2.
+The USB circuit of the Farmduino PCB comes with an ISCP interface to program the ATmega16U2.
 
-Use *avrdude* program to get a detailled list of current ATmega16U2 parameters. *Avrdude* ships with the official [Arduino IDE](https://www.arduino.cc/en/software). 
+![atmega16u2](/guides/atmega16u2/iscp-atmega16U2.png) 
+
+You will need to connect those 6 pins on the Farmduino PCB with jumper cables to their counterparts on the programmer, in this case an Arduino Uno. Make sure none of the devices is powered during wiring!
+
+|Farmduino ISCP|Arduino Uno|
+|-|-|
+|`MOSI`|`Digital pin 11`|
+|`MISO`|`Digital pin 12`|
+|`SCK`|`Digital pin 13`|
+|`USBVCC`|`POWER 5V`|
+|`RESET`|`Digital pin 10`|
+|`USBGND`|`GND`|
+
+Once you are finished, it should look similar like this.
+![atmega16u2](/guides/atmega16u2/wiring.png) 
+
+Now it is time to connect the Arduino to your local PC through USB. The atmega16u2 will programmed with the Arduino as programmer. 
+
+### Retrieval of meta data
+
+Use *avrdude* program to get a detailled list of current ATmega16U2 parameters. *Avrdude* ships with the official [Arduino IDE](https://www.arduino.cc/en/software). Make sure you replace the path and COM port with your actual settings. It is important to work with `19200` as baud rate during programming.
 
 ```bash
-avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" 
--vvv -c avrisp -b 115200
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 19200
 ```
 
-Commandline parameters explained
+Commandline parameters explained.
 |Parameter|What it does|
 |-|-|
 |`-p m16u2`|the Atmel SoC that is addressed with the call, in this case ATmega16U2|
@@ -87,9 +77,30 @@ Commandline parameters explained
 |`-C avrdude.conf`|local path to avrdude configuration file|
 |`-vvv` | verbose log of the communication with the SoC|
 |`-c avrisp`|local PC is used as programmer|
-|`-b 115200`|if local PC is programmer then 115200 is default; if programming is done through an Arduino instead (--> troubleshooting section), then it must be 19200 to work properly|
+|`-b 19200`|if programming is done through an Arduino device, then baud rate must be set `19200` to work properly|
 
-By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal which needs to be configured by writing the fuses in order to synchronize with atmega2560 also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
+If all goes well you will be presented an exhaustive list of your ATmega16U2 settings.
+
+## Unlock the SoC
+
+If ATmega16U2 comes fresh from the factory, then is has protection bits set and is locked. To unlock do the following steps. 
+
+1. Execute avrdude in the commandline.
+```bash
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 19200 -F -t
+```
+2. You will see this prompt `avrdude>`. Enter the phrase `erase`. Enter.
+3. Write `quit` into console and then enter.
+
+New commandline parameters explained.
+|Parameter|What it does|
+|-|-|
+|`-F`|The device signatures will most likely not match, so the `-F` command tells avrdude to ignore them|
+|`-t`| allows us to enter the erase command in the next step|
+
+### Configure the external crystal oscillator
+
+By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal oscillator. ATmega16U2 needs to be configured to use the crystal by writing the fuses in order to synchronize with atmega2560, also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
 
 ![atmega16u2](/guides/atmega16u2/crystal.png)
 
@@ -105,11 +116,10 @@ The final fuse values according to the previous configuration are:
 |-|-|-|
 |`0xFF`|`0xD9`|`0xF4`|
 
-The values are programmed with *avrdude* tool.
+The values are programmed with *avrdude* tool. 
 
 ```bash
-avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" 
--vvv -c avrisp -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xf4:m
+avrdude -p m16u2 -c wiring -P COM3 -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -vvv -c avrisp -b 19200 -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xf4:m
 ```
 
 Additional parameters explained.
@@ -122,20 +132,17 @@ Additional parameters explained.
 
 If all goes well *avrdude* will show a summary of the new fuse values.
 
-## Programming
-Please note, once the initial programming procedure is carried out successfully, the ATmega16U2 won't be recognized by the USB host (your PC) anymore. Instead it will transfer all messages between USB host and ATmega2560 back and forth. If for any reason this seems not possible, please see the troubleshooting section.
+## Flash usbserial application
 
-For programming atmeag16U2 open Flip, choose device and open the USB port. 
+You can use the *avrdude* again to flash the usbserial firmware onto the device. The right `hex` firmware is located in the *avrdude* installation directory.
 
-## Troubleshooting
-To reset the firmware of Atmega16U2, there is an ISCP interface available on the PCB that can be connected to an IC programmer, e.g. Arduino UNO.
+```bash
+C:\Program Files\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\arduino-usbserial\Arduino-usbserial-atmega16u2-Mega2560-Rev3.hex
+```
 
-![atmega16u2](/guides/atmega16u2/iscp-atmega16U2.png)
+Use *avrdude* in the commandline to flash the usbserial program onto the ATmega16U2 using the following command. Don't miss the `:i` at the end of the command if you are on Windows.
 
-from genesis-USB.SchDoc
-
-    D:\Program Files\Arduino\hardware\tools\avr\bin>avrdude.exe -C "D:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -c arduino -P COM3 -b 19200 -p m16u2 -vvv -U flash:w:"D:\Program Files\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\Arduino-COMBINED-dfu-usbserial-atmega16u2-Mega2560-Rev3.hex":i
-
-Get configuration
-
-    avrdude -p m16u2 -c wiring -P COM3 -C "D:\Program Files\Arduino/hardware/tools/avr/etc/avrdude.conf" -vvv -c avrisp -b 19200
+```bash
+avrdude.exe -C "C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf" -c arduino -P COM3 -b 19200 -p m16u2 -vvv -U flash:w:"C:\Program Files\Arduino\hardware\arduino\avr\firmwares\atmegaxxu2\arduino-usbserial\Arduino-usbserial-atmega16u2-Mega2560-Rev3.hex":i
+```
+Done.
