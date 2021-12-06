@@ -63,4 +63,8 @@ Use Arduino IDE again.
 
 If all goes well, Arduino IDE will confirm the flashing of the bootloader. During burn procedure some LEDs on the Farmduino Board will flash wildly. After this sequence the default application has been loaded which causes the `GRE1` LED to flash two times in a row ... forever.
 
+### Flash the latest firmware
+
+Once Farmduino is connected with the Raspbbery Pi running FarmOS, the latest stable firmware will be flashed automatically. For flashing the latest unstable version, please visit the official [Farmbot arduino-firmware](https://github.com/FarmBot/farmbot-arduino-firmware#farmbot-arduino-firmware) page.
+
 Done.
