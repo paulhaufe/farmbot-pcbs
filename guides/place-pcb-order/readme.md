@@ -1,13 +1,11 @@
 # Manufacture Farmduino PCB Assembly
 
-For the sake of simplicity [NextPCB](https://www.nextpcb.com/), a Chinese PCB Manufacturer, will serve as an example for placing an order. Typically a PCB manufacturer expects the following files delivered with an order.
-
-All files for Farmduino v1.5 are saved in this project folder, please see above.
+A typical PCB manufacturer from China or Taiwan expects the following files delivered together with an order. All files for Farmduino v1.5 are saved in this project folder, please see above.
 
 * `Gerber files`, a standardised file format for description of PCB structures
 * `BOM (Bill of Materials)`, list of all electronic components that shall be equipped on the PCB
 * `Pick & Place file`, listing of the orientation of all electronic components
-* a PDF copy of the [Manufacturing Notes of Farmduino](/) page
+* a PDF copy of the [Manufacturing Notes of Farmduino](/./pcb-manufacturing/readme.md) page
 * `Assembly Drawing` (optional), 3D drawing of the PCB from different perspectives
 * `Schemes` (optional), copy of all circuit schemes for better understanding
 
