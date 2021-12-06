@@ -32,6 +32,6 @@ The 12-pin header with designator P20 is located at the lower bottom of the boar
 ### Fuse and fuse holder
 The original Farmduino BOM lists *0287015.H* from *Littlefuse* as primary component for designator F1, but the two fuse blades do not fit to the four through-holes. The missing piece is a fuse holder that is soldered first. The fuse is put manually into the slot of the fuse holder, e.g. *3557-2* from *Keystone*.
 1. Fuse F1
-![fuse](https://github.com/paulhaufe/farmduino-pcb-howto/blob/main/f1.png "fuse")
+![fuse](/guides/pcb-manufacturing//f1.png "fuse")
 2. Fuse holder
 ![fuse holder](/guides/pcb-manufacturing/f1-2.png "fuse holder")
