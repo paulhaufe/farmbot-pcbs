@@ -15,7 +15,7 @@ Small quantities of 5+ equipped PCB pieces are considered *PCB Assembly Prototyp
 
 ## 2. Program Farmduino PCB
 
-* [Smoke test](/hardware/setup/farmduino-setup.md)
+* [Setup of Power Supply](/hardware/setup/farmduino-setup.md)
 * [Initial programming of ATmega16U2](/guides/atmega16u2/readme.md)
 * [Initial programming of ATmega2560](/guides/atmega2560/readme.md)
 * Initital programming of STM32F303 (not yet available)
