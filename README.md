@@ -1,6 +1,6 @@
 # A guide to manufacture and program Farmduino by Farmbot on your own
 
-Many thanks to the [FarmBot](https://farm.bot/) Team for making their great work publicly available as Open Source Hardware and Software. The [Farmduino](https://genesis.farm.bot/v1.5/Extras/bom/electronics-and-wiring#farmduino) device is carries out all those commands by the Raspberry PI such as moving motors, reading sensors etc.
+Many thanks to the [FarmBot](https://farm.bot/) Team for making their great work publicly available as Open Source Hardware and Software. The [Farmduino](https://genesis.farm.bot/v1.5/Extras/bom/electronics-and-wiring#farmduino) device carries out all those commands by the Raspberry PI such as moving motors, reading sensors etc.
 
 This guide tells you how to build an exact copy of the Farmduino v1.5 PCB (Printed Circuit Board) without being an expert in circuit design or electronics.
 
@@ -15,7 +15,7 @@ Small quantities of 5+ equipped PCB pieces are considered *PCB Assembly Prototyp
 
 ## 2. Program Farmduino PCB
 
-* [Smoke test](/farmduino-setup.md)
+* [Smoke test](/hardware/setup/farmduino-setup.md)
 * [Initial programming of ATmega16U2](/guides/atmega16u2/readme.md)
 * [Initial programming of ATmega2560](/guides/atmega2560/readme.md)
 * Initital programming of STM32F303 (not yet available)
