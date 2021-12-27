@@ -6,7 +6,7 @@ The following steps describe how to power the Farmduino device corectly. You wil
 
 # Assemble power cable
 
-The power cable is customized for the sole purpose of connecting the Farmduino to power through the red Molex connector with `X9` as designator. You are going to need a few items to succeed here
+The power cable is customized for the sole purpose of connecting the Farmduino to power through the red Molex connector with `X9` as designator. You are going to need a few items to succeed here.
 
 |Item|Amount|Description|
 |-|-|-|
@@ -27,4 +27,8 @@ After:
 ![crimping](/guides/hardware-setup/power-board.png)
 
 # Smoke test
-Make sure the positive polarity connects to VCC (hot wire) and negative polarity to GND once plugged in. This is because the circuit is DC +24V which means it's a negative ground system. The Farmduino is powered using the Farmduino power cable with the red Molex connector. If there is no smoke and the yellow power LED is on, then it's all good so far.
+Make sure the positive polarity connects to VCC (hot wire) and negative polarity to GND once plugged in. This is because the circuit is DC +24V which means it's a negative ground system. The Farmduino is powered using the Farmduino power cable with the red Molex connector. 
+
+And now, power the device. If there is no smoke and the yellow power LED is on then it's all good so far.
+
+Done.

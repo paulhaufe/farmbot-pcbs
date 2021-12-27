@@ -6,7 +6,7 @@ This guide tells you how to build an exact copy of the Farmduino v1.5 PCB (Print
 
 The whole procedure will take a few weeks due to manufacturing lead time, especially during times of global chip shortage. If this takes too long, [open an issue in this project](https://github.com/paulhaufe/farmduino-pcb-howto/issues) and leave me a message, I have a few left for private sale.
 
-## 1. Print Farmduino Circuit Board
+## 1. Manufacturing of Farmduino PCB Assembly
 
 Small quantities of 5+ equipped PCB pieces are considered *PCB Assembly Prototypes* and are produced by literally hundreds of different PCB Manufacturers located in the Asian region.
 
