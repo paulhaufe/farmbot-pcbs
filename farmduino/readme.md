@@ -14,7 +14,7 @@ If you order PCBA prototypes the first time, checkout the [general guideline](..
 
 ## 2. Program Farmduino PCB
 
-* [Setup of Power Supply](hardware-setup/hardware-setup.md)
+* [Setup of Power Supply](hardware-setup)
 * [Initial programming of ATmega16U2](atmega16u2/readme.md)
 * [Initial programming of ATmega2560](atmega2560/readme.md)
 * Initital programming of STM32F303 (not yet available)
