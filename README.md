@@ -39,6 +39,6 @@ Please wait until an operator reviews and confirms your uploads. You will be not
 Once confirmation is there and open issues adressed, you need to pay upfront :)
 Depending on your location, country-specific taxes for clearing customs add up to the list. You will be notified by the ususal suspects such as DHL, UPS or FedEx.
 
-## Setup
+## 4. Setup the PCB Assembly
 
 There is still some things to do, such as firmware deployment for microcontrollers, cabling, trouble shooting etc. Check out the guidlines for the respective Farmbot PCBAs in the subfolders of this repo.

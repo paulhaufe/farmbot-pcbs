@@ -8,7 +8,7 @@ The whole procedure will take a few weeks due to manufacturing lead time, especi
 
 ## 1. Manufacturing
 
-If you order PCBA prototypes the first time, checkout the [general guideline](../blob/master/README.md).
+If you order PCBA prototypes the first time, checkout the [general guideline](../README.md).
 
 * [Manufacturing Notes for PCB Manufacturers](/order.md)
 
