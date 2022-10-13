@@ -20,7 +20,7 @@ Fresh from factory an ATmega2560 won't have the bootloader loaded onto the SoC. 
 
 The atmega2560 circuit of the Farmduino PCB comes with an ISCP interface to program the SoC. It is 2x3 pin header located at the lower right side of the PCB.
 
-![atmega2560](/guides/atmega2560/iscp-atmega2560.png) 
+![atmega2560](iscp-atmega2560.png) 
 
 You will need to connect those 6 pins on the Farmduino PCB with jumper cables to their counterparts on the programmer, in my case an Arduino Uno. Make sure none of the devices is powered during wiring!
 
@@ -34,7 +34,7 @@ You will need to connect those 6 pins on the Farmduino PCB with jumper cables to
 |`USBGND`|`GND`|
 
 Once you are finished, it should look similar like this.
-![atmega2560](/guides/atmega2560/wiring.png)
+![atmega2560](wiring.png)
 
 ### Software setup
 

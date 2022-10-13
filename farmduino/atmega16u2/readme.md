@@ -19,7 +19,7 @@ The USB-B port needs to be powered by connecting it to the local PC using an USB
 
 Check wether or not the ATmega16U2 SoC is powered with the help of an oscilloscope. I use the Rigol DS1043Z. Connect the probe to the *VCC*, *AVCC* and *UVCC* pins, because all of them are powered through the USB-B power lines. The voltage level should be about 5V at each pin. If not, there is an issue with USB power supply.
 
-![atmega16u2](/guides/atmega16u2/atmega16u2.png)
+![atmega16u2](atmega16u2.png)
 
 ## Install Windows atmega16U2 driver
 Use [Atmel Flip](https://www.microchip.com/en-us/development-tool/flip) software to connect to the ATmega16U2. I used Windows 11. Please note Flip requires a 32-bit Java JRE to start properly. Make sure Java binaries are added to PATH environment variables. 
@@ -32,7 +32,7 @@ Your\Path\..\Atmel\Flip 3.4.7\usb
 
 or where you installed Flip. Confirm the directory. The computer will find the correct driver and installs it. Plug the USB-A end of USB cable into your PC and connect it to the USB-B port of your Farmduino. In the device manager the SoC should show up as follows:
 
-![atmega16u2](/guides/atmega16u2/device-manager.png)
+![atmega16u2](device-manager.png)
 
 ## Programming
 
@@ -42,7 +42,7 @@ To enable the external crystal oscillator the fuses bits have to be changed. You
 
 The USB circuit of the Farmduino PCB comes with an ISCP interface to program the ATmega16U2.
 
-![atmega16u2](/guides/atmega16u2/iscp-atmega16U2.png) 
+![atmega16u2](iscp-atmega16U2.png) 
 
 You will need to connect those 6 pins on the Farmduino PCB with jumper cables to their counterparts on the programmer, in this case an Arduino Uno. Make sure none of the devices is powered during wiring!
 
@@ -56,7 +56,7 @@ You will need to connect those 6 pins on the Farmduino PCB with jumper cables to
 |`USBGND`|`GND`|
 
 Once you are finished, it should look similar like this.
-![atmega16u2](/guides/atmega16u2/wiring.png) 
+![atmega16u2](wiring.png) 
 
 Now it is time to connect the Arduino to your local PC through USB. The atmega16u2 will programmed with the Arduino as programmer. 
 
@@ -102,7 +102,7 @@ New commandline parameters explained.
 
 By default the atmega16U2 uses an internal clock. The farmduino comes with a 16Mhz external crystal oscillator. ATmega16U2 needs to be configured to use the crystal by writing the fuses in order to synchronize with atmega2560, also running 16Mhz. On the PCB the crystal is located at the lower left side of the atmega16U2 marked with designator *G2*. The crystal is the clock generator for the atmega16U2 for synchronizing events within the SoC.
 
-![atmega16u2](/guides/atmega16u2/crystal.png)
+![atmega16u2](crystal.png)
 
 The standard settings of the fuses need to change in order to get the circuit up and running. There is a nice online tool called [*AVR Fuse Calulator*](https://www.microchip.com/en-us/development-tool/flip) for showing all options with corresponding bit masks. Two things have to be adressed here:
 1. configure external 16Mhz crystal oscillator; 
