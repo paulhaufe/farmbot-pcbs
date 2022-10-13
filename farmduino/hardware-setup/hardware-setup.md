@@ -2,7 +2,7 @@
 
 The following steps describe how to power the Farmduino device corectly. You will need a `24V DC / 150W power supply` with protective contact socket. For debugging purposes a programmable lab power supply is even better.
 
-![crimping](/guides/hardware-setup/power-supply.png)
+![crimping](power-supply.png)
 
 # Assemble power cable
 
@@ -20,11 +20,11 @@ Once you collected all the items from the list above, you can crimp the terminal
 
 Before:
 
-![crimping](/guides/hardware-setup/crimping.png)
+![crimping](crimping.png)
 
 After:
 
-![crimping](/guides/hardware-setup/power-board.png)
+![crimping](power-board.png)
 
 # Smoke test
 Make sure the positive polarity connects to VCC (hot wire) and negative polarity to GND once plugged in. This is because the circuit is DC +24V which means it's a negative ground system. The Farmduino is powered using the Farmduino power cable with the red Molex connector. 
