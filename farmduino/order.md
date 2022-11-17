@@ -1,6 +1,6 @@
-# Manufacture Farmduino PCB Assembly
+# Farmduino Order Cheat Sheet
 
-### Manufacturing options for the PCB Assembly
+### Order options for the PCB Assembly
 
 The most important options are listed below. You might play around with the other options to enable more quality assurance or to comply with higher standards, which will result in higher price.
 
