@@ -1,5 +1,7 @@
 # Manufacturing of Farmbot PCB Assemblys
 
+## Related Pages
+* [Farmduino PCB](/farmduino/readme.md)
 ## 1. Prerequisites
 Small quantities of 5+ equipped PCB pieces are considered *PCB Assembly Prototypes* and are produced by literally hundreds of different PCB Manufacturers located in the Asian region.
 
