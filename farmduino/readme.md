@@ -10,7 +10,7 @@ The whole procedure will take a few weeks due to manufacturing lead time, especi
 
 If you order PCBA prototypes the first time, checkout the [general guideline](../README.md).
 
-* [Manufacturing notes for Farmduino PCBA](/manufacturing-notes/readme.md)
+* [Manufacturing notes for Farmduino PCBA](manufacturing-notes/readme.md)
 * [Order cheat sheet for Farmduino PCBA](order.md)
 
 ## 2. Program Farmduino PCB
