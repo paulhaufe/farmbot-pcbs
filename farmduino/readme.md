@@ -18,4 +18,4 @@ If you order PCBA prototypes the first time, checkout the [general guideline](..
 * [Setup of Power Supply](hardware-setup)
 * [Initial programming of ATmega16U2](atmega16u2/readme.md)
 * [Initial programming of ATmega2560](atmega2560/readme.md)
-* Initital programming of STM32F303 (not yet available)
+* [Initital programming of STM32F303](stm32/readme.md)
