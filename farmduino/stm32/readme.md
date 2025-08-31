@@ -29,3 +29,13 @@ You will need to connect those 4 pins on the Farmduino PCB with jumper cables to
 
 Once you are finished, it should look similar like this.
 ![stm32](wiring.jpg)
+
+### Software setup
+
+I used the official software STMCubeProgrammer to burn the firmware. 
+
+* download the latest firmware of the [enoder tracker](https://github.com/MotorDynamicsLab/encoder-tracker). 
+* In the `Device Memory` tab, `Connect` the to the Farmduino STM32
+* Select the `Open file` tab and load the binary firmware file and `download` it to the board.
+
+If all goes well, the IDE will respond with `Data read successully` in the output log.
