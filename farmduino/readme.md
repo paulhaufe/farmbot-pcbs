@@ -13,6 +13,16 @@ If you order PCBA prototypes the first time, checkout the [general guideline](..
 * [Manufacturing notes for Farmduino PCBA](manufacturing-notes/readme.md)
 * [Order cheat sheet for Farmduino PCBA](order.md)
 
+### PCBA Production [Files](/files)
+
+| Files        | Link |
+| ------------- |-------------|
+| gerber files for automatic producion of the PCBs| [gerber.zip](/files/gerber.zip) |
+| Bill of materials of electronic components | [bom.csv](/files/bom.csv)|
+| pick and place file for placing components on the PCB | [pick-place.txt](/files/pick-pace.txt)|
+| curcuit schema for documentation purposes | [schema.pdf](/files.schema.pdf)
+| 3D assembly od the whole PCBA | [assembly-3d.pdf](/files/assembly-3d.pdf)
+
 ## 2. Program Farmduino PCB
 
 * [Setup of Power Supply](hardware-setup)
