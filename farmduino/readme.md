@@ -17,11 +17,11 @@ If you order PCBA prototypes the first time, checkout the [general guideline](..
 
 | Files        | Link |
 | ------------- |-------------|
-| gerber files for automatic producion of the PCBs| [gerber.zip](/files/gerber.zip) |
-| Bill of materials of electronic components | [bom.csv](/files/bom.csv)|
-| pick and place file for placing components on the PCB | [pick-place.txt](/files/pick-pace.txt)|
-| curcuit schema for documentation purposes | [schema.pdf](/files.schema.pdf)
-| 3D assembly od the whole PCBA | [assembly-3d.pdf](/files/assembly-3d.pdf)
+| gerber files for automatic producion of the PCBs| [gerber.zip](/farmduino/files/gerber.zip) |
+| Bill of materials of electronic components | [bom.csv](/farmduino/files/bom.csv)|
+| pick and place file for placing components on the PCB | [pick-place.txt](/farmduino/files/pick-pace.txt)|
+| curcuit schema for documentation purposes | [schema.pdf](/farmduino/files.schema.pdf)
+| 3D assembly od the whole PCBA | [assembly-3d.pdf](/farmduino/files/assembly-3d.pdf)
 
 ## 2. Program Farmduino PCB
 
